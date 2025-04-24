@@ -36,3 +36,4 @@
 ## 画面遷移図
 Figma：https://www.figma.com/design/15Zzsyw8tNoLFg7s0Shrms/%E3%83%9D%E3%83%A2%E3%83%9D%E3%83%A2%E5%8B%95%E7%89%A9%E5%9C%92?node-id=0-1&t=AUMLTS21wCYg4RwB-1
 ## ER図
+![798a9e921accc7a66611d4900fe624d0](https://github.com/user-attachments/assets/cd7c99fa-66db-4a67-a885-1b718c0d8b07)
