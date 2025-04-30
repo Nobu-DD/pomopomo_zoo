@@ -17,6 +17,7 @@
   const start_stop_button = document.querySelector("#startStopButton");
   let timerNow = document.querySelector("#timerNow")
   let startTime;
+  let nIntervId;
 
   // timeにはポモドーロの残り時間(ミリ秒)が代入される
   const msecToSecString = (time) => {
@@ -41,15 +42,16 @@
 
   // タイマーのボタンを押した時の処理を記述する
   const timerSwitch = () => {
-    if (start_stop_button.value === "スタート"){
+    if (!nIntervId){
       // スタートボタンが押された時の処理
       start_stop_button.value = "ストップ";
       // ボタンが押された時の時間
       startTime = new Date().getTime() + 1500000;
       // タイマーを減算する関数を呼び出す
-      setInterval(timerCount,1000);
+      nIntervId = setInterval(timerCount,1000);
     } else {
       start_stop_button.value = "スタート";
+
     };
   };
 
