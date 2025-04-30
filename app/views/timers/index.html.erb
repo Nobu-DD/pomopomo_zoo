@@ -42,16 +42,21 @@
 
   // タイマーのボタンを押した時の処理を記述する
   const timerSwitch = () => {
-    if (!nIntervId){
+    if (start_stop_button.value === "スタート"){
+      if (!nIntervId){
       // スタートボタンが押された時の処理
       start_stop_button.value = "ストップ";
       // ボタンが押された時の時間
       startTime = new Date().getTime() + 1500000;
       // タイマーを減算する関数を呼び出す
       nIntervId = setInterval(timerCount,1000);
+      } else {
+        start_stop_button.value = "ストップ";
+        nIntervId = setInterval(timerCount,1000);
+      };
     } else {
       start_stop_button.value = "スタート";
-
+      clearInterval(nIntervId);
     };
   };
 
