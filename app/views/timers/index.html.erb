@@ -1,7 +1,7 @@
 <div class="min-h-screen">
   <div class="flex justify-center">
     <div class="flex justify-center relative w-50 text-[40px] bg-orange-500 text-white rounded-xl mt-20">
-      <p id="timerNow" class="">00:00</p>
+      <p id="timerNow" class="">25:00</p>
       <p id="" class="absolute right-1 bottom-0  text-3xl">0</p>
     </div>
   </div>
@@ -18,7 +18,9 @@
   let timerNow = document.querySelector("#timerNow")
   let startTime;
 
+  // timeにはポモドーロの残り時間(ミリ秒)が代入される
   const msecToSecString = (time) => {
+    // ミリ秒から秒に変換。コンマは必要ないのでMath.floorで切り捨て
     time = Math.floor(time/1000);
 
     const seconds = time % 60;
@@ -29,12 +31,12 @@
 
     return minuteStr + ":" + secondStr;
   }
-  // タイマーを加算する関数
+  // スタート時間と現在時間の経過を計算する関数
   const timerCount = () => {
     // 1秒立つたびに現在の時刻をミリ秒で取得
     const nowTime = new Date().getTime();
     // msecToSecStringを呼び出してタイマーを1秒ごとに切り替える
-    timerNow.innerHTML = msecToSecString(nowTime - startTime);
+    timerNow.innerHTML = msecToSecString(startTime - nowTime);
   }
 
   // タイマーのボタンを押した時の処理を記述する
@@ -42,9 +44,9 @@
     if (start_stop_button.value === "スタート"){
       // スタートボタンが押された時の処理
       start_stop_button.value = "ストップ";
-      // 比較するための時間を定義(現在時刻)
-      startTime = new Date().getTime();
-      // タイマーを加算する関数を呼び出す
+      // ボタンが押された時の時間
+      startTime = new Date().getTime() + 1500000;
+      // タイマーを減算する関数を呼び出す
       setInterval(timerCount,1000);
     } else {
       start_stop_button.value = "スタート";
