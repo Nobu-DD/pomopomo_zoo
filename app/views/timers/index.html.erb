@@ -15,9 +15,16 @@
 <script>
   // スタート、ストップボタン(input)を定数に代入
   const start_stop_button = document.querySelector("#startStopButton");
+  // タイマー画面に表示される時間
   let timerNow = document.querySelector("#timerNow")
+  // 最初にスタートボタンを押した時のミリ秒
   let startTime;
+  // ポモタイマーストップ、再開するためのインターバルid
   let nIntervId;
+  // ポモ中断時の変数
+  let breakTime;
+  // ポモ残り時間
+  let remainingTime = 1500000;
 
   // timeにはポモドーロの残り時間(ミリ秒)が代入される
   const msecToSecString = (time) => {
@@ -34,27 +41,19 @@
   }
   // スタート時間と現在時間の経過を計算する関数
   const timerCount = () => {
-    // 1秒立つたびに現在の時刻をミリ秒で取得
-    const nowTime = new Date().getTime();
-    // msecToSecStringを呼び出してタイマーを1秒ごとに切り替える
-    timerNow.innerHTML = msecToSecString(startTime - nowTime);
+    nowTime = new Date().getTime();
+    remainingTime = startTime - nowTime;
+    timerNow.innerHTML = msecToSecString(remainingTime);
   }
 
   // タイマーのボタンを押した時の処理を記述する
   const timerSwitch = () => {
     if (start_stop_button.value === "スタート"){
-      if (!nIntervId){
-      // スタートボタンが押された時の処理
       start_stop_button.value = "ストップ";
-      // ボタンが押された時の時間
-      startTime = new Date().getTime() + 1500000;
-      // タイマーを減算する関数を呼び出す
+      startTime = new Date().getTime() + remainingTime;
       nIntervId = setInterval(timerCount,1000);
-      } else {
-        start_stop_button.value = "ストップ";
-        nIntervId = setInterval(timerCount,1000);
-      };
     } else {
+      // ストップを押した時の処理
       start_stop_button.value = "スタート";
       clearInterval(nIntervId);
     };
