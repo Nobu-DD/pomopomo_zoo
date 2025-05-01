@@ -65,16 +65,22 @@
       if (learningStatus){
         remainingTime = 300000;
         learningStatus = false;
-        intervalComment.innerHTML = "動物鑑賞中";
+        intervalComment.innerHTML = "動物鑑賞中...";
         startStopButton.value = "再開";
         intervalTime();
       } else {
-        remainingTime = 1500000;
-        learningStatus = true;
-        startStopButton.value = "スタート";
+        resumeStudying()
       }
     }
     timerNow.innerHTML = msecToSecString(remainingTime);
+  }
+
+  // 学習再開時の処理記入
+  const resumeStudying = () => {
+    remainingTime = 1500000;
+    learningStatus = true;
+    intervalComment.innerHTML = "";
+    startStopButton.value = "スタート";
   }
 
   // タイマーのボタンを押した時の処理を記述する
@@ -83,17 +89,22 @@
       start_stop_button.value = "ストップ";
       startTime = new Date().getTime() + remainingTime;
       nIntervId = setInterval(timerCount,1000);
-    } else {
+    } else if (start_stop_button.value === "ストップ") {
       // ストップを押した時の処理
       start_stop_button.value = "スタート";
       clearInterval(nIntervId);
+    } else {
+      // 再開を押した時の処理
+      nowTime = new Date().getTime();
+      remainingTime = startTime - nowTime;
+      clearInterval(nIntervId);
+      resumeStudying();
+      timerNow.innerHTML = msecToSecString(remainingTime);
     };
   };
 
-  // スタート、ストップボタンが押された時の処理
+  // スタート、ストップ,再開ボタンが押された時の処理
   start_stop_button.addEventListener('click', timerSwitch);
-
-  // timerNowが"00:00"になった時の処理
 </script>
 
 <%# <%= javascript_path "timer" %>
