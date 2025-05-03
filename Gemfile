@@ -62,5 +62,5 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem 'carrierwave', '~> 3.0'
-gem 'sorcery'
+gem "carrierwave", "~> 3.0"
+gem "sorcery"
