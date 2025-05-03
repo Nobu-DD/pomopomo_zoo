@@ -13,5 +13,8 @@
     "@hotwired/turbo-rails": "^8.0.13",
     "@tailwindcss/cli": "^4.1.4",
     "tailwindcss": "^4.1.4"
+  },
+  "engines": {
+    "node": ">=20.19.1 <21.0.0"
   }
 }
