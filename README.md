@@ -16,24 +16,27 @@
 - ペットの布教をしたい方
 ## 主な使い方
 - すぐにポモドーロを使いたい方はスタートボタンを選択してください。時間とともに動物たちがランダムに出現します。
-- 動物の投稿をしたい方は「動物入園」ボタンを選択して、動物画像を投稿してください。
+- 動物の投稿をしたい方は「動物投稿」ボタンを選択して、動物画像を投稿してください。
 ## 機能内容
 ### MVP
 - ポモドーロタイマー機能
 - 動物出現機能
 - 動物画像投稿機能
-### 今後実装予定
+- 動物画像一覧、編集、削除機能
 - 認証機能
-   - 認証済み
+   - 認証済み(認可)
       - 動物画像投稿機能
       - ユーザーの投稿画像一覧、編集機能
    - ゲスト
-      - 動物投稿機能のみ
-- カテゴリ別ポモドーロ機能
+      - ユーザーの投稿画像一覧のみ
+### 今後実装予定
+- 現状予定無し
 ## 機能実装予定
-- フロントエンド： Tailwind CSS,Turbo
+- フロントエンド： Tailwind CSS,JavaScript
 - バックエンド： Ruby on Rails
+- データベース：　PostgreSQL
+- インフラ：　Render
 ## 画面遷移図
 Figma：https://www.figma.com/design/15Zzsyw8tNoLFg7s0Shrms/%E3%83%9D%E3%83%A2%E3%83%9D%E3%83%A2%E5%8B%95%E7%89%A9%E5%9C%92?node-id=0-1&t=AUMLTS21wCYg4RwB-1
 ## ER図
-![798a9e921accc7a66611d4900fe624d0](https://github.com/user-attachments/assets/cd7c99fa-66db-4a67-a885-1b718c0d8b07)
+![8cd1ed154355c6f59f523b3c34ef124e](https://github.com/user-attachments/assets/8efdf112-7de8-4d2c-a625-6780bfa54d57)

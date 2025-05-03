@@ -45,6 +45,10 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem "rubocop"
+  gem "rubocop-rails"
+  gem "rubocop-checkstyle_formatter"
 end
 
 group :development do
@@ -57,3 +61,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "carrierwave", "~> 3.0"
+gem "sorcery"
