@@ -1,7 +1,7 @@
 
 console.log("タイマー機能のjsファイルです！")
 
-// スタート、ストップボタン(input)を定数に代入
+  // スタート、ストップボタン(input)を定数に代入
   let start_stop_button = document.querySelector("#startStopButton");
   // タイマー画面に表示される時間
   let timerNow = document.querySelector("#timerNow");
@@ -25,13 +25,13 @@ console.log("タイマー機能のjsファイルです！")
   // timeにはポモドーロの残り時間(ミリ秒)が代入される
   const msecToSecString = (time) => {
     // ミリ秒から秒に変換。コンマは必要ないのでMath.floorで切り捨て
-    time = Math.floor(time/1000);
+    time = Math.floor(time / 1000);
 
     const seconds = time % 60;
     const minutes = Math.floor(time / 60);
 
-    let secondStr = (seconds < 10 ? "0" : "" ) + String(seconds);
-    let minuteStr = (minutes < 10 ? "0" : "" ) + String(minutes);
+    let secondStr = (seconds < 10 ? "0" : "") + String(seconds);
+    let minuteStr = (minutes < 10 ? "0" : "") + String(minutes);
 
     return minuteStr + ":" + secondStr;
   }
@@ -39,16 +39,16 @@ console.log("タイマー機能のjsファイルです！")
   // 休憩時間用の時間作成
   const intervalTime = () => {
     startTime = new Date().getTime() + remainingTime;
-    nIntervId = setInterval(timerCount,1000);
+    nIntervId = setInterval(timerCount, 1000);
   }
 
   // スタート時間と現在時間の経過を計算する関数
   const timerCount = () => {
     let nowTime = new Date().getTime();
     remainingTime = startTime - nowTime;
-    if (remainingTime < 0){
+    if (remainingTime < 0) {
       clearInterval(nIntervId);
-      if (learningStatus){
+      if (learningStatus) {
         remainingTime = 300000;
         i = i + 1;
         pomodoro.innerHTML = i;
@@ -73,10 +73,10 @@ console.log("タイマー機能のjsファイルです！")
 
   // タイマーのボタンを押した時の処理を記述する
   const timerSwitch = () => {
-    if (start_stop_button.value === "スタート"){
+    if (start_stop_button.value === "スタート") {
       start_stop_button.value = "ストップ";
       startTime = new Date().getTime() + remainingTime;
-      nIntervId = setInterval(timerCount,1000);
+      nIntervId = setInterval(timerCount, 1000);
     } else if (start_stop_button.value === "ストップ") {
       // ストップを押した時の処理
       start_stop_button.value = "スタート";
