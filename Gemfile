@@ -64,3 +64,4 @@ end
 
 gem "carrierwave", "~> 3.0"
 gem "sorcery"
+gem 'importmap-rails', '~> 2.1'
