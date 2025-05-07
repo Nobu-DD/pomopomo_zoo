@@ -11,16 +11,23 @@ document.addEventListener("turbo:load", function () {
   let startTime;
   // ポモタイマーストップ、再開するためのインターバルid
   let nIntervId;
-  // ポモ中断時の変数
-  let breakTime;
-  // ポモ残り時間
+  // ポモ残り時間。初期値は30分
   let remainingTime = 1500000;
   // ポモ変数
-  let i = 0
+  let i = 0;
   // ポモドーロ回数
   let pomodoro = document.querySelector("#pomodoro");
   // 学習中、休憩中を判定する変数
-  let learningStatus = true
+  let learningStatus = true;
+  // 動物の鳴き声
+  let cryAnimals = document.querySelectorAll(".cry");
+
+  // 鳴き声データをランダムで取り出す
+  const randomCry = () => {
+    let num = Math.floor(Math.random() * cryAnimals.length);
+    let cryNotice = cryAnimals.item(num);
+    cryNotice.play();
+  };
 
   // timeにはポモドーロの残り時間(ミリ秒)が代入される
   const msecToSecString = (time) => {
@@ -59,6 +66,7 @@ document.addEventListener("turbo:load", function () {
       } else {
         resumeStudying()
       }
+      randomCry();
     }
     timerNow.innerHTML = msecToSecString(remainingTime);
   }
@@ -73,6 +81,7 @@ document.addEventListener("turbo:load", function () {
 
   // タイマーのボタンを押した時の処理を記述する
   const timerSwitch = () => {
+    randomCry();
     if (start_stop_button.value === "スタート") {
       start_stop_button.value = "ストップ";
       startTime = new Date().getTime() + remainingTime;
@@ -83,8 +92,6 @@ document.addEventListener("turbo:load", function () {
       clearInterval(nIntervId);
     } else {
       // 再開を押した時の処理
-      nowTime = new Date().getTime();
-      remainingTime = startTime - nowTime;
       clearInterval(nIntervId);
       resumeStudying();
       timerNow.innerHTML = msecToSecString(remainingTime);
