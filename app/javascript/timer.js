@@ -21,6 +21,8 @@ document.addEventListener("turbo:load", function () {
   let pomodoro = document.querySelector("#pomodoro");
   // 学習中、休憩中を判定する変数
   let learningStatus = true
+  // 動物の鳴き声
+  let cry = document.querySelector("#cry");
 
   // timeにはポモドーロの残り時間(ミリ秒)が代入される
   const msecToSecString = (time) => {
@@ -59,6 +61,7 @@ document.addEventListener("turbo:load", function () {
       } else {
         resumeStudying()
       }
+      cry.play();
     }
     timerNow.innerHTML = msecToSecString(remainingTime);
   }
@@ -73,6 +76,7 @@ document.addEventListener("turbo:load", function () {
 
   // タイマーのボタンを押した時の処理を記述する
   const timerSwitch = () => {
+    cry.play();
     if (start_stop_button.value === "スタート") {
       start_stop_button.value = "ストップ";
       startTime = new Date().getTime() + remainingTime;
