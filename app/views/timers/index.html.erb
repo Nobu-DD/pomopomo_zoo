@@ -1,5 +1,4 @@
 <div class="min-h-screen">
-
   <div class="flex justify-center">
     <div class="flex justify-center relative w-50 text-[40px] bg-orange-500 text-white rounded-xl mt-20">
       <p id="timerNow" class="">25:00</p>
@@ -16,5 +15,8 @@
   <div class="flex relative mt-13">
     <%= link_to "トップ画面", "/", class: "absolute right-8 inline-block text-center text-[40px] bg-yellow-500 w-60 text-white rounded-xl cursor-pointer"%>
   </div>
-  <%= audio_tag("howling_of_wolves.mp3", "dog_cry.mp3", "cat_cry.mp3", id: "cry")%>
+  <%= audio_tag("howling_of_wolves.mp3", class: "cry")%>
+  <%= audio_tag("dog_cry.mp3", class: "cry")%>
+  <%= audio_tag("cat_cry.mp3", class: "cry")%>
+  <%= audio_tag("horse_cry.mp3", class: "cry")%>
 </div>
