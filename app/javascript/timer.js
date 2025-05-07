@@ -1,5 +1,5 @@
-
-console.log("タイマー機能のjsファイルです！")
+document.addEventListener("turbo:load", function () {
+  console.log("タイマー機能のjsファイルです！")
 
   // スタート、ストップボタン(input)を定数に代入
   let start_stop_button = document.querySelector("#startStopButton");
@@ -91,5 +91,6 @@ console.log("タイマー機能のjsファイルです！")
     };
   };
 
-// スタート、ストップ,再開ボタンが押された時の処理
-start_stop_button.addEventListener('click', timerSwitch);
+  // スタート、ストップ,再開ボタンが押された時の処理
+  start_stop_button.addEventListener('click', timerSwitch);
+});
