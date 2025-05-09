@@ -1,16 +1,17 @@
-<div class="min-h-screen">
-  <div class="h-8/10">
-    <div class="h-[150px] flex items-center justify-center ">
-      <h1 class="text-yellow-300 text-[50px] font-bold">ポモポモ動物園</h1>
-    </div>
-    <div class="h-[150px] flex items-center justify-center">
-      <%= button_to "ポモスタート",{controller: 'timers', action: 'index'},method: :get, class: "text-[40px] bg-orange-500 text-white rounded-xl cursor-pointer"%>
-    </div>
-    <!--
-    # <div class="animal_switch">
-    #   <p>動物登録</p>
-    #   <p>動物一覧</p>
-    # </div>
-    -->
+<div class="h-screen pt-[60px] pb-[80px] grid grid-rows-[25%_50%_25%]">
+  <div class="flex items-center justify-center">
+    <h1 class="text-yellow-300 text-[50px] font-bold ">ポモポモ動物園</h1>
   </div>
+  <div class="flex justify-center items-end">
+    <%= button_to "ポモスタート",{controller: 'timers', action: 'index'},method: :get, class: "text-[40px] bg-orange-500 text-white rounded-xl p-2"%>
+  </div>
+  <div class="flex justify-center items-center">
+    <p class="text-yellow-200 text-2xl">※動物画像登録機能 後日実装予定</p>
+  </div>
+  <!--
+  # <div class="animal_switch">
+  #   <p>動物登録</p>
+  #   <p>動物一覧</p>
+  # </div>
+  -->
 </div>
