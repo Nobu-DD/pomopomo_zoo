@@ -1,0 +1,17 @@
+<h1>飼育員登録</h1>
+
+<%= form_with model: @user do |f| %>
+  <div>
+    <%= f.label :email, "メールアドレス" %><br>
+    <%= f.email_field :email  %>
+  </div>
+
+  <div>
+    <%= f.label :password, "パスワード" %><br>
+    <%= f.password_field :password  %>
+  </div>
+
+  <div>
+    <%= f.submit "登録する" %>
+  </div>
+<% end %>

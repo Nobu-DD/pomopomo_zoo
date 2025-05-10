@@ -18,7 +18,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body style="background-image: url(<%= asset_path('background.jpeg') %>)" class="bg-cover bg-center min-h-screen">
+  <body style="background-image: url(<%= asset_path('background.jpeg') %>)" class="bg-cover bg-center min-h-screen h-full relative">
+    <%= render 'shared/header' %>
     <%= yield %>
+    <%= render 'shared/footer' %>
   </body>
 </html>

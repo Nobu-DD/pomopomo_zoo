@@ -11,7 +11,7 @@ document.addEventListener("turbo:load", function () {
   let startTime;
   // ポモタイマーストップ、再開するためのインターバルid
   let nIntervId;
-  // ポモ残り時間。初期値は30分
+  // ポモ残り時間。初期値は25分
   let remainingTime = 1500000;
   // ポモ変数
   let i = 0;

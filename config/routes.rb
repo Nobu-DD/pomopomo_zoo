@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "static_pages#top"
   resources :timers, only: %i[ index ]
+  resources :animals, only: %i[ index new create destroy ]
+  resources :users, only: %i[ new create ]
 end
