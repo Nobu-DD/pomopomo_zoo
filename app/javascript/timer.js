@@ -11,8 +11,8 @@ document.addEventListener("turbo:load", function () {
   let startTime;
   // ポモタイマーストップ、再開するためのインターバルid
   let nIntervId;
-  // ポモ残り時間。初期値は30分
-  let remainingTime = 1500000;
+  // ポモ残り時間。初期値は25分
+  let remainingTime = 600000;
   // ポモ変数
   let i = 0;
   // ポモドーロ回数
@@ -73,7 +73,7 @@ document.addEventListener("turbo:load", function () {
 
   // 学習再開時の処理記入
   const resumeStudying = () => {
-    remainingTime = 1500000;
+    remainingTime = 600000;
     learningStatus = true;
     intervalComment.innerHTML = "";
     startStopButton.value = "スタート";
